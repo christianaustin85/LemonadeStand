@@ -3,7 +3,8 @@
 * LemonadeStand.java
 * Christian Austin
 *
-* The program is the solution for the unit 6 homework assignment.
+* The program contains methods used in the Lemonade Stand simulator.  This
+* project expands on coursework completed at Park University
 ******************************************************************************/
 public class LemonadeStand
 {
@@ -49,12 +50,9 @@ public class LemonadeStand
   
   // This method makes a pitcher of lemonade.  It adds to numOfServings, 
   // subtracts from numOfLemons and numOfCupsSugar and displays remaining 
-  // inventory and number of servings on hand. This changes the output expected
-  // in the sample session, but enhances usability of the program by providing 
-  // the user with updated inventory information each time the user attempts 
-  // to make a pitcher of lemonade.
+  // inventory and number of servings on hand. 
   
-  public void makePitcherOfLemonade()
+  public void makeLemonade()
   {
     if (numOfLemons < LEMONS_PER_PITCHER || numOfCupsSugar < SUGAR_PER_PITCHER)
     {
@@ -76,7 +74,7 @@ public class LemonadeStand
   //****************************************************************************
   
   // This method adjusts inventory and tracks money earned as lemonade is sold.
-  // As an enhancement, it also displays remaining servings after each sale.
+  // It also displays remaining servings after each sale.
   
   public void sellLemonade()
   {
@@ -100,7 +98,7 @@ public class LemonadeStand
   // the owner's name, remaining inventory or lemons and cups of sugar, and 
   // current number of servings ready to be sold.
   
-  public void displayStand()
+  public void info()
   {
     System.out.printf("%18s\n", " |===============|");
     System.out.printf(
@@ -115,14 +113,8 @@ public class LemonadeStand
       "/cup   |");
     System.out.printf("%18s\n", " |_______________|");
     // Display remaining inventory   
-    System.out.println(
-      "\nYou have " + this.numOfServings +
-      " serving(s) of lemonade remaining.");
-    System.out.println(
-      "You have " + this.numOfLemons +
-      " lemon(s) remaining.");
-    System.out.println(
-        "You have " + this.numOfCupsSugar +
-        " cup(s) of sugar remaining.");
+    System.out.println("\nYou have " + this.numOfServings +" serving(s) of lemonade remaining.");
+    System.out.println("You have " + this.numOfLemons + " lemon(s) remaining.");
+    System.out.println("You have " + this.numOfCupsSugar + " cup(s) of sugar remaining.");
   } // end displayStand
 } // end class LemonadeStand

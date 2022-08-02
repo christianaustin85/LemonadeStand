@@ -1,8 +1,9 @@
 /********************************************************
-* Unit6ProjectDriver.java
-* John Dean
+* LemonadeStandDriver.java
+* Christian Austin
 *
-* This program drives the LemonadeStand class
+* This program drives the LemonadeStand class.
+* Provides the user menu and 
 *********************************************************/
 import java.util.Scanner;
 public class LemonadeStandDriver
@@ -22,6 +23,8 @@ public class LemonadeStandDriver
     stand.setStandOwner(name);
     stand.setLemons(10);
     stand.setCupsOfSugar(4);
+    
+    // do while loop manages user input
     do
     {
       System.out.println("\nWhat would you like to do?");
@@ -30,9 +33,11 @@ public class LemonadeStandDriver
         " 3) Display information, 4) Quit");
       System.out.print("Enter 1, 2, 3, or 4: ");
       selection = stdIn.nextInt();
+      
+      //refactor to switch case
       if (selection == 1)
       {
-        stand.makePitcherOfLemonade();
+        stand.makeLemonade();
       }
       else if (selection == 2)
       {
@@ -40,7 +45,7 @@ public class LemonadeStandDriver
       }
       else if (selection == 3)
       {
-        stand.displayStand();
+        stand.info();
       }
       else if (selection < 1 || selection > 4)
       {
