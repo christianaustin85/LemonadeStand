@@ -3,7 +3,7 @@
 * Christian Austin
 *
 * This program drives the LemonadeStand class.
-* Provides the user menu and 
+* Provides the user menu 
 *********************************************************/
 import java.util.Scanner;
 
@@ -30,17 +30,25 @@ public class LemonadeStandDriver {
 			System.out.print("Enter 1, 2, 3, or 4: ");
 			selection = stdIn.nextInt();
 
-			// TODO refactor to switch case
-			if (selection == 1) {
-				stand.makeLemonade();
-			} else if (selection == 2) {
-				stand.sellLemonade();
-			} else if (selection == 3) {
-				stand.info();
-			} else if (selection < 1 || selection > 4) {
-				System.out.println("Invalid selection, try again.");
+			switch (selection) {
+				case 1: 
+					stand.makeLemonade();
+					break;
+				case 2:
+					stand.sellLemonade();
+					break;
+				case 3:
+					stand.info();
+					break;
+				case 4:
+					break;
+				default:
+					System.out.println("Invalid selection, try again.");
+					break;
 			}
+
 		} while (selection != 4);
+		
 		System.out.printf("\nAfter a long day of selling lemonade, " 
 		+ "you made: $%4.2f\n", stand.getMoneyEarned());
 		System.out.println("Good job!");
