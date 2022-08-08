@@ -36,10 +36,7 @@ public class LemonadeStand {
 		return this.moneyEarned;
 	} // end getMoneyEarned
 	// ****************************************************************************
-<<<<<<< HEAD
 
-=======
->>>>>>> parent of 900a461 (Added showInventory method)
 	// This method makes a pitcher of lemonade. It adds to numOfServings,
 	// subtracts from numOfLemons and numOfCupsSugar and displays remaining
 	// inventory and number of servings on hand.
@@ -53,19 +50,21 @@ public class LemonadeStand {
 			this.numOfCupsSugar -= SUGAR_PER_PITCHER;
 			this.numOfLemons -= LEMONS_PER_PITCHER;
 		}
-<<<<<<< HEAD
 		this.showInventory();
 
-=======
-		//TODO make helper method to display inventory
-		System.out.println("You have " + numOfLemons + " lemon(s) and " + numOfCupsSugar
-				+ " cup(s) of sugar remaining. \nYou have " + numOfServings + 
-				" serving(s) of lemonade ready to sell.");
->>>>>>> parent of 900a461 (Added showInventory method)
+
 	} // end makePitcherOfLemonade
 
 	// ****************************************************************************
 
+	// This method displays inventory information
+	
+	public void showInventory() {
+		System.out.println("You have " + numOfLemons + " lemon(s) and " + numOfCupsSugar
+				+ " cup(s) of sugar remaining. \nYou have " + numOfServings + 
+				" serving(s) of lemonade ready to sell.");
+	}
+	
 	// This method adjusts inventory and tracks money earned as lemonade is sold.
 	// It also displays remaining servings after each sale.
 
@@ -97,8 +96,6 @@ public class LemonadeStand {
 		System.out.printf("%6s%4.2f%8s\n", " |   $", LEMONADE_SERVING_PRICE, "/cup   |");
 		System.out.printf("%18s\n", " |_______________|");
 		// Display remaining inventory
-		System.out.println("\nYou have " + this.numOfServings + " serving(s) of lemonade remaining.");
-		System.out.println("You have " + this.numOfLemons + " lemon(s) remaining.");
-		System.out.println("You have " + this.numOfCupsSugar + " cup(s) of sugar remaining.");
+		this.showInventory();
 	} // end displayStand
 } // end class LemonadeStand
