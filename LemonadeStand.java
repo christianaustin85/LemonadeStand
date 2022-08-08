@@ -15,9 +15,8 @@ public class LemonadeStand {
 	private int numOfServings = 0; // number of servings left in pitcher
 	private double moneyEarned = 0; // total money earned by selling lemonade
 
-	/*
-	 * Getters and Setters
-	 */
+	// ****************************************************************************
+	// This following methods assign values to instance variables
 
 	public void setStandOwner(String name) {
 		this.standOwner = name;
@@ -31,14 +30,19 @@ public class LemonadeStand {
 		this.numOfCupsSugar = numOfCupsSugar;
 	} // end setCupsOfSugar
 
+	// ****************************************************************************
+	// This method returns the amount of money earned.
 	public double getMoneyEarned() {
 		return this.moneyEarned;
 	} // end getMoneyEarned
 	// ****************************************************************************
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 900a461 (Added showInventory method)
 	// This method makes a pitcher of lemonade. It adds to numOfServings,
-	// and subtracts from inventory 
-	// TODO incorporate recipes as an argument
+	// subtracts from numOfLemons and numOfCupsSugar and displays remaining
+	// inventory and number of servings on hand.
 
 	public void makeLemonade() {
 		if (numOfLemons < LEMONS_PER_PITCHER || numOfCupsSugar < SUGAR_PER_PITCHER) {
@@ -49,11 +53,19 @@ public class LemonadeStand {
 			this.numOfCupsSugar -= SUGAR_PER_PITCHER;
 			this.numOfLemons -= LEMONS_PER_PITCHER;
 		}
+<<<<<<< HEAD
 		this.showInventory();
 
+=======
+		//TODO make helper method to display inventory
+		System.out.println("You have " + numOfLemons + " lemon(s) and " + numOfCupsSugar
+				+ " cup(s) of sugar remaining. \nYou have " + numOfServings + 
+				" serving(s) of lemonade ready to sell.");
+>>>>>>> parent of 900a461 (Added showInventory method)
 	} // end makePitcherOfLemonade
 
 	// ****************************************************************************
+
 	// This method adjusts inventory and tracks money earned as lemonade is sold.
 	// It also displays remaining servings after each sale.
 
@@ -70,13 +82,6 @@ public class LemonadeStand {
 
 	// ****************************************************************************
 
-	public void showInventory(){
-		System.out.println("You have " + numOfLemons + " lemon(s) and " + numOfCupsSugar
-				+ " cup(s) of sugar remaining. \nYou have " + numOfServings + 
-				" serving(s) of lemonade ready to sell.");
-	}
-
-
 	// This method displays information about the lemonade stand including
 	// the owner's name, remaining inventory or lemons and cups of sugar, and
 	// current number of servings ready to be sold.
@@ -92,6 +97,8 @@ public class LemonadeStand {
 		System.out.printf("%6s%4.2f%8s\n", " |   $", LEMONADE_SERVING_PRICE, "/cup   |");
 		System.out.printf("%18s\n", " |_______________|");
 		// Display remaining inventory
-		this.showInventory();
+		System.out.println("\nYou have " + this.numOfServings + " serving(s) of lemonade remaining.");
+		System.out.println("You have " + this.numOfLemons + " lemon(s) remaining.");
+		System.out.println("You have " + this.numOfCupsSugar + " cup(s) of sugar remaining.");
 	} // end displayStand
 } // end class LemonadeStand
