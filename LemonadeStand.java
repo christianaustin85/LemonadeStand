@@ -36,7 +36,6 @@ public class LemonadeStand {
 	} // end getMoneyEarned
 	// ****************************************************************************
 
-	// ****************************************************************************
 	// This method makes a pitcher of lemonade. It adds to numOfServings,
 	// and subtracts from inventory 
 	// TODO incorporate recipes as an argument
@@ -50,7 +49,7 @@ public class LemonadeStand {
 			this.numOfCupsSugar -= SUGAR_PER_PITCHER;
 			this.numOfLemons -= LEMONS_PER_PITCHER;
 		}
-		//TODO make helper method to display inventory
+		this.showInventory();
 
 	} // end makePitcherOfLemonade
 
