@@ -6,13 +6,10 @@
  ******************************************************************************/
 public class LemonadeStand {
 	private final double LEMONADE_SERVING_PRICE = .50; // price per serving
-	private final int LEMONS_PER_PITCHER = 5; // number of lemons per pitcher
-	private final int SUGAR_PER_PITCHER = 1; // cups of sugar per pitcher
-	private final int SERVINGS_PER_PITCHER = 3; // number of servings per pitcher
 	private String standOwner = null; // name of lemonade stand owner
-	private int numOfLemons = 0; // number of lemons remaining
-	private int numOfCupsSugar = 0; // number of cups of sugar remaining
-	private int numOfServings = 0; // number of servings left in pitcher
+	public int inventoryLemons = 0; // number of lemons remaining
+	public int inventorySugar = 0; // number of cups of sugar remaining
+	public int inventoryServings = 0; // number of servings left in pitcher
 	private double moneyEarned = 0; // total money earned by selling lemonade
 
 	// ****************************************************************************
@@ -23,11 +20,11 @@ public class LemonadeStand {
 	} // end setStandOwner
 
 	public void setLemons(int numOfLemons) {
-		this.numOfLemons = numOfLemons;
+		this.inventoryLemons = numOfLemons;
 	} // end setLemons
 
 	public void setCupsOfSugar(int numOfCupsSugar) {
-		this.numOfCupsSugar = numOfCupsSugar;
+		this.inventorySugar = numOfCupsSugar;
 	} // end setCupsOfSugar
 
 	// ****************************************************************************

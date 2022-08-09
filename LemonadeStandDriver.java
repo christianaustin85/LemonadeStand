@@ -32,7 +32,7 @@ public class LemonadeStandDriver {
 
 			switch (selection) {
 				case 1: 
-					stand.makeLemonade();
+					stand.OriginalRecipe.makeLemonade();
 					break;
 				case 2:
 					stand.sellLemonade();
