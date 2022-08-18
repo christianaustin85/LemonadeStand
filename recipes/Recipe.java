@@ -1,3 +1,6 @@
+package recipes;
+import objects.Stand;
+
 /******************************************************************************
  * Recipe.java 
  * Christian Austin
@@ -7,13 +10,13 @@
  ******************************************************************************/
 public class Recipe {
 	
-	LemonadeStand stand;
+	Stand stand;
 	//Variable declarations
-	private final int lemonsNeeded;
-	private final int sugarNeeded;
-	private final int waterNeeded;
-	private final int servingsMade;
-	private final String name; 
+	protected int lemonsNeeded;
+	protected int sugarNeeded;
+	protected int waterNeeded;
+	protected int servingsMade;
+	protected String name; 
 	
 	//Getters
 	public int getLemons() {return this.lemonsNeeded;}
@@ -23,21 +26,13 @@ public class Recipe {
 	public String getName() {return this.name;}
 	
 	//Display ingredients needed and yield of recipe
-	public void info() {
+	public void recipeInfo() {
 		System.out.println("To make " + this.name + "  you need " + this.lemonsNeeded + " Lemons, " 
 			+ this.sugarNeeded + " cups of sugar, and " + this.waterNeeded + " cups of water to make " 
 			+ this.servingsMade + " servings of lemonade.");
 	}
+
 	
-	public void makeLemonade() {
-		if (stand.numOfLemons < lemonsNeeded || stand.numOfCupsSugar < sugarNeeded) {
-			System.out.println("Sorry - unable to make a new pitcher of lemonade.");
-		} else {
-			System.out.println("A new pitcher of lemonade has been made.");
-			stand.numOfServings += servingsMade;
-			stand.numOfCupsSugar -= sugarNeeded;
-			stand.numOfLemons -= lemonsNeeded;
-		}
 }
 
 	

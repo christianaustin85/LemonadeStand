@@ -1,4 +1,4 @@
-
+package recipes;
 public class ExtraSweetRecipe extends Recipe {
 
 	public ExtraSweetRecipe() {

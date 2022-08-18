@@ -7,18 +7,21 @@
 *********************************************************/
 import java.util.Scanner;
 
-public class LemonadeStandDriver {
+import objects.Stand;
+
+public class Game {
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		String name; // lemonade stand owner's name
 		int selection; // user's choice of what to do next
 
-		LemonadeStand stand = new LemonadeStand();
+
 		System.out.println("Welcome to Lemonade Stand Manager 2.0!\n");
 
+		//supplies given when building first stand, but not if building more stands
 		System.out.print("What is your first name? ");
 		name = stdIn.nextLine();
-		stand.setStandOwner(name);
+		Stand stand = new Stand(name);
 		stand.setLemons(10);
 		stand.setCupsOfSugar(4);
 
