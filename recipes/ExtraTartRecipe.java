@@ -6,6 +6,7 @@ public class ExtraTartRecipe extends Recipe {
 		sugarNeeded = 1;
 		waterNeeded = 7;
 		servingsMade = 8;
-		name = "Extra Tart Lemonade";	}
+		name = "Extra Tart Lemonade";	
+	}
 
 }

@@ -26,8 +26,6 @@ public class Stand {
 	private double originalPrice = .50;
 	private double extraTartPrice = .50;
 	private double extraSweetPrice = .50;
-	
-	Recipe orig = new OriginalRecipe();
 
 
 	// ****************************************************************************
@@ -61,6 +59,8 @@ public class Stand {
 	
 	// ****************************************************************************
 
+	
+	//for later use after implementation of store class
 	public void addLemons(int l) {inventoryLemons += l;}
 	public void addSugar(int s) {inventorySugar += s;}
 	public void addWater(int w) {inventoryWater += w;}
@@ -75,29 +75,25 @@ public class Stand {
 	// subtracts from numOfLemons and numOfCupsSugar and displays remaining
 	// inventory and number of servings on hand.
 
-	public void makeLemonade(int recipe) {
-		switch (recipe) {
-			case 1: 
-				orig.makeLemonade();
-				break;
-			case 2:
-				tart.makeLemonade();
-				break;
-			case 3:
-				sweet.makeLemonade();
-				break;
-			case 4:
-				break;
-			default:
-				System.out.println("Invalid selection, try again.");
-				break;
-		if (numOfLemons < LEMONS_PER_PITCHER || numOfCupsSugar < SUGAR_PER_PITCHER) {
+	public void makeLemonade(Recipe r, int i) {
+		if (inventoryLemons < r.getLemons() || inventorySugar < r.getSugar()
+				|| inventoryWater < r.getWater()) {
 			System.out.println("Sorry - unable to make a new pitcher of lemonade.");
 		} else {
-			System.out.println("A new pitcher of lemonade has been made.");
-			this.numOfServings += SERVINGS_PER_PITCHER;
-			this.numOfCupsSugar -= SUGAR_PER_PITCHER;
-			this.numOfLemons -= inventoryLemons;
+			System.out.println("A new pitcher of " + r.getName() + " has been made.");
+			this.inventorySugar -= r.getSugar();
+			this.inventoryLemons -= r.getLemons();
+			this.inventoryWater -= r.getWater();
+			switch(i) {
+			case 1:
+				this.originalServings += r.getServings();
+				break;
+			case 2:
+				this.extraSweetServings += r.getServings();
+				break;
+			case 3:
+				this.extraTartServings += r.getServings();
+			}
 		}
 		this.showInventory();
 
@@ -106,6 +102,9 @@ public class Stand {
 
 	// ****************************************************************************
 
+	public void makeLemonadeMenu() {
+		
+	}
 	// This method displays inventory information
 	
 	public void showInventory() {
@@ -118,17 +117,31 @@ public class Stand {
 	// It also displays remaining servings after each sale.
 	// needs to display number of servings for each recipe, take input, and sell selected
 
-	public void sellLemonade() {
-
-		
-		if (inventoryServings > 0) {
-			System.out.println("A lemonade has been sold.");
-			this.inventoryServings--;
-			this.moneyEarned += servingPrice;
-			System.out.println("You have " + inventoryServings + " serving(s) of " + "lemonade.");
-		} else {
-			System.out.println("Sorry - there is no lemonade currently available.");
+	public void sellLemonade(Recipe r, int i) {
+		//check servings inventory to see if lemonade can be sold
+		if (i == 1 && originalServings < 1 || i == 2 && extraSweetServings < 1  
+				|| i == 3 && extraTartServings < 1) {
+			System.out.println("Sorry, there is no " + r.getName() + " currently available.");
+			return;
 		}
+	
+		//continue with making chosen lemonade	
+		switch(i) {
+			case 1:
+				originalServings --;
+				moneyEarned += originalPrice;
+				break;
+			case 2:
+				extraSweetServings --;
+				moneyEarned += extraSweetPrice;
+				break;
+			case 3:
+				extraTartServings --;
+				moneyEarned += extraTartPrice;
+				break;
+		}
+
+		System.out.println("A lemonade has been sold.");
 	} // end sellLemonade
 
 	// ****************************************************************************
@@ -139,13 +152,13 @@ public class Stand {
 
 	public void info() {
 		System.out.printf("%18s\n", " |===============|");
-		System.out.printf(" |  %-13s|\n", this.standOwner + "'s");
+		System.out.printf(" |  %-13s|\n", standOwner + "'s");
 		System.out.printf("%7s%11s\n", " |     ", "Lemonade  |");
 		System.out.printf("%18s\n", " |===============|");
 		System.out.printf("%18s\n", " |     /_\\_      |");
 		System.out.printf("%18s\n", " |    (^_^)      |");
 		System.out.printf("%18s\n", " |_____/|\\_[]>___|");
-		System.out.printf("%6s%4.2f%8s\n", " |   $", servingPrice, "/cup   |");
+		System.out.printf("%6s%4.2f%8s\n", " |   $", originalPrice, "/cup   |");
 		System.out.printf("%18s\n", " |_______________|");
 		// Display remaining inventory
 		this.showInventory();

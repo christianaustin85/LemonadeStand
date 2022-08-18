@@ -8,12 +8,14 @@
 import java.util.Scanner;
 
 import objects.Stand;
+import recipes.*;
 
 public class Game {
 	public static void main(String[] args) {
 		Scanner stdIn = new Scanner(System.in);
 		String name; // lemonade stand owner's name
 		int selection; // user's choice of what to do next
+		int choice; // used for inner switch statements
 
 
 		System.out.println("Welcome to Lemonade Stand Manager 2.0!\n");
@@ -23,7 +25,14 @@ public class Game {
 		name = stdIn.nextLine();
 		Stand stand = new Stand(name);
 		stand.setLemons(10);
-		stand.setCupsOfSugar(4);
+		stand.setSugar(10);
+		stand.setWater(10);
+		
+		//create instances of all recipes
+		Recipe orig = new OriginalRecipe();
+		Recipe et = new ExtraTartRecipe();
+		Recipe es = new ExtraSweetRecipe();
+		
 
 		// do while loop manages user input
 		do {
@@ -34,11 +43,35 @@ public class Game {
 			selection = stdIn.nextInt();
 
 			switch (selection) {
-				case 1: 
-					stand.OriginalRecipe.makeLemonade();
+				case 1:
+					System.out.println("\nWhat recipe would you like to make?");
+					System.out.println("\n1)Original 2)Extra Sweet 3)Extra Tart");
+					choice = stdIn.nextInt();
+					switch(choice) {
+						case 1:
+							stand.makeLemonade(orig, choice);
+							break;
+						case 2:
+							stand.makeLemonade(es, choice);
+							break;
+						case 3:
+							stand.makeLemonade(et, choice);
+					}
 					break;
 				case 2:
-					stand.sellLemonade();
+					System.out.println("\nWhat recipe would you like to sell?");
+					System.out.println("\n1)Original 2)Extra Sweet 3)Extra Tart");
+					choice = stdIn.nextInt();
+					switch(choice) {
+						case 1:
+							stand.sellLemonade(orig, choice);
+							break;
+						case 2:
+							stand.sellLemonade(es, choice);
+							break;
+						case 3:
+							stand.sellLemonade(et, choice);
+					}
 					break;
 				case 3:
 					stand.info();
@@ -52,6 +85,7 @@ public class Game {
 
 		} while (selection != 4);
 		
+		stdIn.close();
 		System.out.printf("\nAfter a long day of selling lemonade, " 
 		+ "you made: $%4.2f\n", stand.getMoneyEarned());
 		System.out.println("Good job!");
