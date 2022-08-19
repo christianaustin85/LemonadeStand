@@ -13,5 +13,6 @@ As of right now, the current release of the program is stable, yet still very si
 - [ ] Create random events to happen every hour
 - [ ] Create NPCs that the player will interact with
 - [ ] Provide for game saving and score tracking
+- [ ] Develop simple GUI for point/click of options instead of text-based command entry
 
 
