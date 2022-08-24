@@ -30,6 +30,8 @@ public class Stand {
 
 	// ****************************************************************************
 	// Constructor
+	public Stand() {};
+	
 	public Stand(String name, int l, int s, int w) {
 		standOwner = name;
 		inventoryLemons = l;
@@ -64,7 +66,6 @@ public class Stand {
 	
 	// ****************************************************************************
 
-	
 	//for later use after implementation of store class
 	public void addLemons(int l) {inventoryLemons += l;}
 	public void addSugar(int s) {inventorySugar += s;}
@@ -83,7 +84,7 @@ public class Stand {
 	public void makeLemonade(Recipe r, int i) {
 		if (inventoryLemons < r.getLemons() || inventorySugar < r.getSugar()
 				|| inventoryWater < r.getWater()) {
-			System.out.println("Sorry - unable to make a new pitcher of lemonade.");
+			System.out.println("Sorry - unable to make a new pitcher of " + r.getName() + ".");
 		} else {
 			System.out.println("A new pitcher of " + r.getName() + " has been made.");
 			this.inventorySugar -= r.getSugar();
@@ -107,9 +108,7 @@ public class Stand {
 
 	// ****************************************************************************
 
-	public void makeLemonadeMenu() {
-		
-	}
+
 	// This method displays inventory information
 	
 	public void showInventory() {
