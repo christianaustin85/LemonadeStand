@@ -23,7 +23,7 @@ public class Game {
 		//supplies given when building first stand, but not if building more stands
 		System.out.print("What is your first name? ");
 		name = stdIn.nextLine();
-		Stand stand = new Stand(name, 10, 10, 10);
+		Stand stand = new Stand(name, 15, 3, 15);
 
 		
 		//create instances of all recipes
