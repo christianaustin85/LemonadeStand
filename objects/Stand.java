@@ -29,8 +29,13 @@ public class Stand {
 
 
 	// ****************************************************************************
-	
-	public Stand(String name) {this.standOwner = name;}
+	// Constructor
+	public Stand(String name, int l, int s, int w) {
+		standOwner = name;
+		inventoryLemons = l;
+		inventorySugar = s;
+		inventoryWater = w;
+		}
 	
 	// Setters and Getters
 	public void setStandOwner(String name) {this.standOwner = name;}
